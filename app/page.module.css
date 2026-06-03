@@ -1,0 +1,118 @@
+.page {
+  min-height: 100vh;
+  padding: 0 18px 0;
+  padding-top: 20px;
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at top right, rgba(218, 37, 45, 0.2), transparent 28%),
+    radial-gradient(circle at top left, rgba(18, 64, 135, 0.22), transparent 30%),
+    linear-gradient(180deg, #f6f9ff 0%, #ffffff 48%, #eef4ff 100%);
+  color: var(--text-primary);
+}
+
+.sectionBand {
+  position: relative;
+  width: min(1500px, 100%);
+  margin: 0 auto;
+  padding: 34px 24px;
+}
+
+.sectionBand::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 36px;
+  border: 1px solid rgba(18, 64, 135, 0.08);
+  pointer-events: none;
+}
+
+.sectionBand + .sectionBand {
+  margin-top: 22px;
+}
+
+.heroBand {
+  width: calc(100% + 36px);
+  margin-top: 0;
+  margin-right: -18px;
+  margin-left: -18px;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+.heroBand::before {
+  display: none;
+}
+
+.metricsBand {
+  width: min(1500px, 100%);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 248, 255, 0.92));
+  border-radius: 28px 46px 28px 46px;
+}
+
+.featuresBand {
+  width: min(1500px, 100%);
+  background:
+    linear-gradient(135deg, rgba(18, 64, 135, 0.06), rgba(255, 255, 255, 0.95) 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 248, 248, 0.8));
+  border-radius: 46px 28px 46px 28px;
+}
+
+.stepsBand {
+  width: min(1500px, 100%);
+  background:
+    linear-gradient(135deg, rgba(8, 27, 60, 0.97), rgba(18, 64, 135, 0.9));
+  border-radius: 34px;
+  color: #fff;
+}
+
+.stepsBand::before {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.categoriesBand {
+  width: min(1500px, 100%);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(218, 37, 45, 0.1), transparent 20%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(242, 246, 255, 0.95));
+  border-radius: 52px 52px 30px 30px;
+}
+
+.ctaBand {
+  width: min(1500px, 100%);
+  padding-bottom: 18px;
+  background:
+    linear-gradient(135deg, rgba(10, 30, 68, 0.06), rgba(255, 255, 255, 0.75));
+  border-radius: 30px 30px 52px 52px;
+}
+
+@media (max-width: 760px) {
+  .page {
+    padding: 0 14px 44px;
+  }
+
+  .sectionBand {
+    padding: 26px 14px;
+  }
+
+  .sectionBand::before {
+    border-radius: 26px;
+  }
+
+  .heroBand,
+  .metricsBand,
+  .featuresBand,
+  .stepsBand,
+  .categoriesBand,
+  .ctaBand {
+    border-radius: 26px;
+  }
+
+  .heroBand {
+    width: calc(100% + 28px);
+    margin-right: -14px;
+    margin-left: -14px;
+    border-radius: 0;
+  }
+}

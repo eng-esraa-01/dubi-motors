@@ -1,0 +1,50 @@
+@import "@fontsource/cairo/400.css";
+@import "@fontsource/cairo/500.css";
+@import "@fontsource/cairo/600.css";
+@import "@fontsource/cairo/700.css";
+@import "@fontsource/cairo/800.css";
+
+:root {
+  --brand-blue: #124087;
+  --brand-blue-deep: #0b2b5d;
+  --brand-red: #da252d;
+  --text-primary: #102139;
+  --text-secondary: #50607d;
+  --surface: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Cairo", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: #f7faff;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+strong {
+  font-weight: 800;
+}
