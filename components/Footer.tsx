@@ -69,7 +69,7 @@ export default function Footer() {
           </div>
 
           <span className={styles.copyright}>
-            © 2026 DubiMotors. جميع الحقوق محفوظة لشركة الإمارات للحلول الإعلانية.
+            © تصميم وتطوير شركة
           </span>
         </div>
       </div>

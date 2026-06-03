@@ -1,5 +1,5 @@
 .metrics {
-  width: min(1240px, 100%);
+  width: min(1320px, 100%);
   margin: 30px auto 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

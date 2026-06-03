@@ -18,16 +18,16 @@ export default function Home() {
         <MetricsSection />
       </div>
 
-      <div className={`${styles.sectionBand} ${styles.featuresBand}`}>
-        <FeaturesSection />
+      <div className={`${styles.sectionBand} ${styles.categoriesBand}`}>
+        <CategoriesSection />
       </div>
 
       <div className={`${styles.sectionBand} ${styles.stepsBand}`}>
         <StepsSection />
       </div>
 
-      <div className={`${styles.sectionBand} ${styles.categoriesBand}`}>
-        <CategoriesSection />
+      <div className={`${styles.sectionBand} ${styles.featuresBand}`}>
+        <FeaturesSection />
       </div>
 
       <div className={`${styles.sectionBand} ${styles.ctaBand}`}>
