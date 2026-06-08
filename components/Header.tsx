@@ -8,11 +8,15 @@ const navItems = [
   { label: "الأقسام", href: "#categories" },
 ];
 
-export default function Header() {
+type HeaderProps = {
+  basePath?: string;
+};
+
+export default function Header({ basePath = "" }: HeaderProps) {
   return (
     <header className={styles.shell}>
       <div className={styles.header}>
-        <a href="#" className={styles.brand} aria-label="Dubi Motors">
+        <a href={`${basePath}#`} className={styles.brand} aria-label="Dubi Motors">
           <Image
             src="/logo.png"
             alt="Dubi Motors"
@@ -25,14 +29,14 @@ export default function Header() {
 
         <nav className={styles.nav} aria-label="Main navigation">
           {navItems.map((item) => (
-            <a key={item.label} href={item.href} className={styles.navLink}>
+            <a key={item.label} href={`${basePath}${item.href}`} className={styles.navLink}>
               {item.label}
             </a>
           ))}
         </nav>
 
         <div className={styles.actions}>
-          <a href="#contact" className={styles.primaryAction}>
+          <a href={`${basePath}#contact`} className={styles.primaryAction}>
             ابدأ إعلانك
           </a>
         </div>

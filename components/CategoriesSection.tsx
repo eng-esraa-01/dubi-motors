@@ -1,3 +1,43 @@
+import type { IconType } from "react-icons";
+import {
+  FaAppleAlt,
+  FaBath,
+  FaBolt,
+  FaBookOpen,
+  FaBoxOpen,
+  FaBriefcase,
+  FaCar,
+  FaChair,
+  FaDog,
+  FaDumbbell,
+  FaEnvelopeOpenText,
+  FaGem,
+  FaGraduationCap,
+  FaHammer,
+  FaHeartPulse,
+  FaHouse,
+  FaHouseChimneyMedical,
+  FaLightbulb,
+  FaMotorcycle,
+  FaPaw,
+  FaScrewdriverWrench,
+  FaShirt,
+  FaShop,
+  FaStore,
+  FaToolbox,
+  FaTruck,
+  FaTruckFast,
+  FaUserDoctor,
+  FaUserGraduate,
+  FaUtensils,
+  FaWheatAwn,
+  FaWrench,
+} from "react-icons/fa6";
+import { GiTeacher } from "react-icons/gi";
+import { LuPackageSearch } from "react-icons/lu";
+import { MdFactory, MdOutlinePrecisionManufacturing } from "react-icons/md";
+import { PiShippingContainerFill } from "react-icons/pi";
+import { TbToolsKitchen2 } from "react-icons/tb";
 import { categories } from "./data";
 import styles from "./CategoriesSection.module.css";
 
@@ -11,16 +51,64 @@ const categoryNotes = [
   "ظهور أقوى داخل السوق",
 ];
 
+const categoryIcons: Record<number, IconType> = {
+  1: FaCar,
+  2: FaHouse,
+  3: FaCar,
+  4: FaScrewdriverWrench,
+  5: GiTeacher,
+  6: FaUserDoctor,
+  7: FaBriefcase,
+  8: FaAppleAlt,
+  9: FaUtensils,
+  10: FaStore,
+  11: TbToolsKitchen2,
+  12: FaHouseChimneyMedical,
+  13: FaChair,
+  14: FaToolbox,
+  15: FaBath,
+  16: FaBolt,
+  17: FaHeartPulse,
+  18: FaGraduationCap,
+  19: FaTruckFast,
+  20: FaShirt,
+  21: FaTruck,
+  22: FaPaw,
+  23: FaEnvelopeOpenText,
+  24: FaGem,
+  25: FaWrench,
+  26: FaHammer,
+  27: FaToolbox,
+  28: FaDumbbell,
+  29: FaMotorcycle,
+  30: MdOutlinePrecisionManufacturing,
+  31: MdFactory,
+  32: FaLightbulb,
+  33: LuPackageSearch,
+  34: FaBoxOpen,
+  35: PiShippingContainerFill,
+  36: FaDog,
+  37: FaTruckFast,
+};
+
+function CategoryIcon({ id, className }: { id: number; className?: string }) {
+  const Icon = categoryIcons[id] ?? FaShop;
+  return <Icon className={className} aria-hidden="true" />;
+}
+
 export default function CategoriesSection() {
   return (
     <section id="categories" className={styles.section}>
       <div className={styles.heroPanel}>
         <div className={styles.copyBlock}>
           <span className={styles.kicker}>دليل الأقسام الإعلانية</span>
-          <h2 className={styles.title}>اعرض إعلانك داخل القسم المناسب ليصل إلى العميل المناسب بشكل أسرع</h2>
+          <h2 className={styles.title}>
+            اعرض إعلانك داخل القسم المناسب ليصل إلى العميل المناسب بشكل أسرع
+          </h2>
           <p className={styles.description}>
-            صُممت الأقسام لتمنح كل منتج أو خدمة مكانًا واضحًا داخل تجربة تصفح حديثة، مما يساعد على زيادة
-            الظهور، تقليل التشتت، ورفع فرص التواصل المباشر مع المعلنين الجادين.
+            صُممت الأقسام لتمنح كل منتج أو خدمة مكانًا واضحًا داخل تجربة تصفح
+            حديثة، مما يساعد على زيادة الظهور، تقليل التشتت، ورفع فرص التواصل
+            المباشر مع المعلنين الجادين.
           </p>
 
           <div className={styles.statsRow}>
@@ -42,7 +130,9 @@ export default function CategoriesSection() {
         <div className={styles.featuredGrid}>
           {featuredCategories.map((category, index) => (
             <article key={category.id} className={styles.featuredCard}>
-              <span className={styles.featuredIndex}>0{index + 1}</span>
+              <span className={styles.featuredIconWrap}>
+                <CategoryIcon id={category.id} className={styles.featuredIcon} />
+              </span>
               <h3>{category.name}</h3>
               <p>{categoryNotes[index]}</p>
               <span className={styles.featuredId}>#{category.id}</span>
@@ -60,7 +150,9 @@ export default function CategoriesSection() {
         <div className={styles.grid}>
           {directoryCategories.map((category) => (
             <article key={category.id} className={styles.card}>
-              <span className={styles.id}>#{category.id}</span>
+              <span className={styles.iconBadge}>
+                <CategoryIcon id={category.id} className={styles.cardIcon} />
+              </span>
               <h4>{category.name}</h4>
             </article>
           ))}

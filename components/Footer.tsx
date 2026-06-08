@@ -1,20 +1,25 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./Footer.module.css";
 
 const quickLinks = [
-  { label: "رئيسية دوبي موتورز", href: "#" },
+  { label: "رئيسية دبي موتورز", href: "#" },
   { label: "تصفح الأقسام الـ 37", href: "#categories" },
   { label: "حالة عرض الإعلانات", href: "#features" },
   { label: "محاكاة رفع الإعلانات مجانًا", href: "#contact" },
 ];
 
 const contactItems = [
-  "support@dubimotors.com",
-  "+971 4 555 4321",
-  "برج المارينا، ص.ب 4519، دبي",
+  { label: "info@dubaisale.app", href: "mailto:info@dubaisale.app" },
+  { label: "+971 54 519 4553", href: "tel:+971545194553" },
 ];
 
-const socialItems = ["in", "ig", "x", "f"];
+const legalLinks = [
+  { label: "سياسة الخصوصية", href: "/privacy-policy" },
+  { label: "الشروط والأحكام", href: "/terms-and-conditions" },
+];
+
+const socialItems = ["in", "x", "f"];
 
 export default function Footer() {
   return (
@@ -51,9 +56,15 @@ export default function Footer() {
             <h3>اتصل بالدعم الفني</h3>
             <div className={styles.contactList}>
               {contactItems.map((item) => (
-                <span key={item} className={styles.contactItem}>
-                  {item}
-                </span>
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className={`${styles.contactItem} ${
+                    item.href.startsWith("tel:") ? styles.phoneItem : ""
+                  }`}
+                >
+                  {item.label}
+                </a>
               ))}
             </div>
           </div>
@@ -69,8 +80,31 @@ export default function Footer() {
           </div>
 
           <span className={styles.copyright}>
-            © تصميم وتطوير شركة
+            <span>© تصميم وتطوير</span>
+            <a
+              href="https://dwam-tech.com/"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.devLogoLink}
+              aria-label="Dwam Tech"
+            >
+              <Image
+                src="/02.webp"
+                alt="دوام"
+                width={82}
+                height={28}
+                className={styles.devLogo}
+              />
+            </a>
           </span>
+
+          <div className={styles.legalLinks}>
+            {legalLinks.map((link) => (
+              <Link key={link.label} href={link.href} className={styles.legalLink}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

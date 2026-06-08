@@ -12,7 +12,14 @@ export default function StepsSection() {
       <div className={styles.grid}>
         {steps.map((step, index) => (
           <div key={step} className={styles.card}>
-            <span className={styles.number}>{index + 1}</span>
+            <div className={styles.cardTop}>
+              <span className={styles.number}>{index + 1}</span>
+              {index < steps.length - 1 ? (
+                <span className={styles.arrowBadge} aria-hidden="true" />
+              ) : (
+                <span className={styles.arrowPlaceholder} aria-hidden="true" />
+              )}
+            </div>
             <p>{step}</p>
           </div>
         ))}

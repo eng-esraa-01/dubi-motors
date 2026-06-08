@@ -70,13 +70,23 @@
   color: #fff;
 }
 
+.contactItem:hover {
+  color: #fff;
+}
+
+.phoneItem {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+}
+
 .bottom {
   margin-top: 46px;
   padding-top: 34px;
   border-top: 1px solid rgba(63, 100, 160, 0.28);
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
-  justify-content: space-between;
   gap: 20px;
 }
 
@@ -84,6 +94,26 @@
   display: flex;
   align-items: center;
   gap: 14px;
+  justify-content: flex-start;
+}
+
+.legalLinks {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.legalLink {
+  color: rgba(220, 230, 247, 0.82);
+  text-decoration: none;
+  font-size: 0.94rem;
+  line-height: 1.8;
+  transition: color 0.2s ease;
+}
+
+.legalLink:hover {
+  color: #fff;
 }
 
 .socialIcon {
@@ -103,10 +133,26 @@
 }
 
 .copyright {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   color: rgba(220, 230, 247, 0.82);
   font-size: 0.94rem;
   line-height: 1.8;
-  text-align: left;
+  text-align: center;
+}
+
+.devLogo {
+  width: auto;
+  height: 28px;
+  object-fit: contain;
+}
+
+.devLogoLink {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 @media (max-width: 980px) {
@@ -125,8 +171,15 @@
   }
 
   .bottom {
-    flex-direction: column-reverse;
+    grid-template-columns: 1fr;
     align-items: flex-start;
+  }
+
+  .legalLinks,
+  .copyright,
+  .socials {
+    width: 100%;
+    justify-content: flex-start;
   }
 }
 
@@ -154,5 +207,11 @@
   .bottom {
     margin-top: 32px;
     padding-top: 24px;
+  }
+
+  .legalLinks {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 }

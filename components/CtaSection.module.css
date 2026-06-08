@@ -38,6 +38,60 @@
   font-weight: 500;
 }
 
+.storeButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.storeButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 1 210px;
+  min-height: 58px;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  background: rgba(6, 16, 36, 0.34);
+  color: #fff;
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 32px rgba(6, 12, 28, 0.16);
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.storeButton:hover {
+  transform: translateY(-2px);
+  background: rgba(8, 18, 42, 0.54);
+  border-color: rgba(255, 255, 255, 0.26);
+}
+
+.storeIcon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  object-fit: contain;
+}
+
+.storeText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.storeText small {
+  color: rgba(224, 233, 247, 0.76);
+  font-size: 0.7rem;
+}
+
+.storeText strong {
+  font-size: 0.96rem;
+  font-weight: 800;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -58,5 +112,9 @@
     flex-direction: column;
     align-items: stretch;
     padding: 22px;
+  }
+
+  .storeButtons {
+    flex-direction: column;
   }
 }

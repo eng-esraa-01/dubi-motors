@@ -1,21 +1,23 @@
+import Image from "next/image";
 import Header from "./Header";
-import { highlights } from "./data";
 import styles from "./HeroSection.module.css";
 
-export default function HeroSection() {
-  const metrics = ["+37", "+150K", "+50K"];
+type HeroSectionProps = {
+  headerBasePath?: string;
+};
 
+export default function HeroSection({ headerBasePath = "" }: HeroSectionProps) {
   return (
     <section className={styles.hero}>
       <div className={styles.overlay} />
       <div className={styles.heroHeader}>
-        <Header />
+        <Header basePath={headerBasePath} />
       </div>
 
       <div className={styles.content}>
         <span className={styles.badge}>المنصة الخدمية والإعلانية الأوسع انتشارًا</span>
         <h1 className={styles.title}>
-          انـشـر إعـلانـاتـك
+          انشـر إعـلانـاتـك
           <br />
           <span>مـجـانًـا وبـدون عـمـولـة</span>
         </h1>
@@ -31,7 +33,49 @@ export default function HeroSection() {
             ابدأ بنشر إعلانك مجانًا
           </a>
           <a href="#categories" className={styles.secondaryButton}>
-            اكتشف الأقسام 
+            اكتشف الأقسام
+          </a>
+        </div>
+
+        <div className={styles.storeButtons}>
+          <a
+            href="https://play.google.com/store"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.storeButton}
+            aria-label="تنزيل التطبيق من Google Play"
+          >
+            <Image
+              src="/google-play.png"
+              alt=""
+              width={22}
+              height={22}
+              className={styles.storeIcon}
+            />
+            <span className={styles.storeText}>
+              <small>حمّل التطبيق من</small>
+              <strong>Google Play</strong>
+            </span>
+          </a>
+
+          <a
+            href="https://www.apple.com/app-store/"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.storeButton}
+            aria-label="تنزيل التطبيق من App Store"
+          >
+            <Image
+              src="/app-store.png"
+              alt=""
+              width={22}
+              height={22}
+              className={styles.storeIcon}
+            />
+            <span className={styles.storeText}>
+              <small>حمّل التطبيق من</small>
+              <strong>App Store</strong>
+            </span>
           </a>
         </div>
       </div>
@@ -71,7 +115,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-
     </section>
   );
 }
