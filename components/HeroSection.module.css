@@ -480,8 +480,20 @@
     padding: 24px 14px 26px;
   }
 
+  .heroHeader {
+    margin-bottom: 14px;
+  }
+
+  .content {
+    max-width: 100%;
+    justify-self: center;
+    text-align: center;
+  }
+
   .badge {
     font-size: 0.78rem;
+    justify-content: center;
+    margin-inline: auto;
   }
 
   .title {
@@ -489,22 +501,45 @@
   }
 
   .description {
+    margin: 0 auto 28px;
     font-size: 0.92rem;
   }
 
   .actions {
     flex-direction: column;
     align-items: stretch;
+    justify-content: center;
   }
 
   .storeButtons {
-    flex-direction: column;
+    flex-direction: row;
     align-items: stretch;
+    justify-content: center;
+    flex-wrap: nowrap;
   }
 
   .storeButton {
-    flex: 1 1 auto;
+    flex: 1 1 calc(50% - 6px);
     min-width: 0;
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .storeText {
+    align-items: flex-start;
+  }
+
+  .storeText small {
+    font-size: 0.64rem;
+  }
+
+  .storeText strong {
+    font-size: 0.86rem;
+  }
+
+  .previewCard {
+    max-width: 440px;
+    justify-self: center;
   }
 
   .previewHeader,

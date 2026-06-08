@@ -42,7 +42,20 @@ import { categories } from "./data";
 import styles from "./CategoriesSection.module.css";
 
 const featuredCategories = categories.slice(0, 4);
-const directoryCategories = categories.slice(4);
+const directoryCategories = (() => {
+  const items = categories.slice(4);
+  const shippingIndex = items.findIndex((category) => category.id === 19);
+  const jewelryIndex = items.findIndex((category) => category.id === 24);
+
+  if (shippingIndex === -1 || jewelryIndex === -1) {
+    return swapHomeAndExport(items);
+  }
+
+  const [jewelryCategory] = items.splice(jewelryIndex, 1);
+  items.splice(shippingIndex + 1, 0, jewelryCategory);
+
+  return swapHomeAndExport(items);
+})();
 
 const categoryNotes = [
   "إعلانات سريعة الوصول",
@@ -94,6 +107,30 @@ const categoryIcons: Record<number, IconType> = {
 function CategoryIcon({ id, className }: { id: number; className?: string }) {
   const Icon = categoryIcons[id] ?? FaShop;
   return <Icon className={className} aria-hidden="true" />;
+}
+
+function swapHomeAndExport(items: typeof categories) {
+  const homeIndex = items.findIndex((category) => category.id === 12);
+  const exportIndex = items.findIndex((category) => category.id === 37);
+
+  if (homeIndex === -1 || exportIndex === -1) {
+    return swapKidsAndGyms(items);
+  }
+
+  [items[homeIndex], items[exportIndex]] = [items[exportIndex], items[homeIndex]];
+  return swapKidsAndGyms(items);
+}
+
+function swapKidsAndGyms(items: typeof categories) {
+  const kidsIndex = items.findIndex((category) => category.id === 22);
+  const gymsIndex = items.findIndex((category) => category.id === 28);
+
+  if (kidsIndex === -1 || gymsIndex === -1) {
+    return items;
+  }
+
+  [items[kidsIndex], items[gymsIndex]] = [items[gymsIndex], items[kidsIndex]];
+  return items;
 }
 
 export default function CategoriesSection() {
@@ -148,8 +185,13 @@ export default function CategoriesSection() {
         </div>
 
         <div className={styles.grid}>
-          {directoryCategories.map((category) => (
-            <article key={category.id} className={styles.card}>
+          {directoryCategories.map((category, index) => (
+            <article
+              key={category.id}
+              className={`${styles.card} ${
+                index === directoryCategories.length - 1 ? styles.lastCard : ""
+              }`}
+            >
               <span className={styles.iconBadge}>
                 <CategoryIcon id={category.id} className={styles.cardIcon} />
               </span>

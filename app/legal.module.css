@@ -19,6 +19,7 @@
   width: 100%;
   padding: 48px 18px 72px;
   overflow-x: clip;
+  direction: rtl;
 }
 
 .container {
@@ -29,6 +30,8 @@
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid rgba(18, 64, 135, 0.08);
   box-shadow: 0 24px 54px rgba(13, 36, 82, 0.08);
+  direction: rtl;
+  text-align: right;
 }
 
 .backLink {

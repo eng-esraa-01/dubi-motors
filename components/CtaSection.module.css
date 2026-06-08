@@ -115,6 +115,23 @@
   }
 
   .storeButtons {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  .storeButton {
+    flex: 1 1 calc(50% - 5px);
+    min-width: 0;
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .storeText small {
+    font-size: 0.64rem;
+  }
+
+  .storeText strong {
+    font-size: 0.86rem;
   }
 }

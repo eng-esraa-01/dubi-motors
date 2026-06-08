@@ -88,9 +88,9 @@
 }
 
 @media (max-width: 760px) {
-  .page {
+  /* .page {
     padding: 0 14px 44px;
-  }
+  } */
 
   .sectionBand {
     padding: 26px 14px;

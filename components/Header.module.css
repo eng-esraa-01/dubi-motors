@@ -127,7 +127,7 @@
   }
 
   .nav {
-    justify-content: flex-start;
+    justify-content: center;
     border-radius: 18px;
   }
 
@@ -150,8 +150,21 @@
     width: 126px;
   }
 
+  .nav {
+    justify-content: center;
+  }
+
   .actions,
   .primaryAction {
     width: 100%;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .primaryAction {
+    max-width: 220px;
+    margin-inline: auto;
   }
 }
