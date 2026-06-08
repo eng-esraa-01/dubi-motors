@@ -1,6 +1,6 @@
 import type { IconType } from "react-icons";
 import {
-  FaAppleAlt,
+  FaApple,
   FaBath,
   FaBolt,
   FaBookOpen,
@@ -72,7 +72,7 @@ const categoryIcons: Record<number, IconType> = {
   5: GiTeacher,
   6: FaUserDoctor,
   7: FaBriefcase,
-  8: FaAppleAlt,
+  8: FaApple,
   9: FaUtensils,
   10: FaStore,
   11: TbToolsKitchen2,
